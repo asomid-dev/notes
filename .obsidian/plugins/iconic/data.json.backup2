@@ -1,0 +1,75 @@
+{
+  "biggerIcons": "mobile",
+  "clickableIcons": "desktop",
+  "showAllFileIcons": true,
+  "showAllFolderIcons": false,
+  "minimalFolderIcons": true,
+  "showMarkdownTabIcons": true,
+  "showTitleIcons": true,
+  "showTagPillIcons": false,
+  "showMenuActions": true,
+  "showSuggestionIcons": false,
+  "showQuickSwitcherIcons": true,
+  "showMoveFileIcons": true,
+  "showItemName": "desktop",
+  "useSearchKeywords": "on",
+  "maxSearchResults": 100,
+  "colorPicker1": "list",
+  "colorPicker2": "rgb",
+  "uncolorHover": false,
+  "uncolorDrag": true,
+  "uncolorSelect": true,
+  "uncolorQuick": false,
+  "maxBackups": 2,
+  "dialogState": {
+    "iconMode": true,
+    "emojiMode": false,
+    "rulePage": "file"
+  },
+  "appIcons": {},
+  "tabIcons": {},
+  "fileIcons": {
+    "markdown/uni": {
+      "icon": "lucide-scroll-text",
+      "color": "yellow"
+    },
+    "markdown/uni/Subjects/BD": {
+      "icon": "lucide-database",
+      "color": "purple"
+    },
+    "markdown/uni/Subjects/CI": {
+      "icon": "lucide-cpu",
+      "color": "gray"
+    },
+    "markdown/uni/Subjects/EDA": {
+      "icon": "lucide-code-xml",
+      "color": "green"
+    },
+    "markdown/uni/Subjects/EDA/Problems": {
+      "icon": "lucide-clipboard-check",
+      "color": "red"
+    },
+    "markdown/uni/Subjects/EDA/Problems/Analysis of Algorithms.md": {
+      "icon": "lucide-microscope",
+      "color": "orange"
+    },
+    "markdown/uni/Subjects/EDA/Theory": {
+      "icon": "lucide-notebook-pen",
+      "color": "green"
+    },
+    "markdown/uni/Subjects/PE": {
+      "icon": "math-integral-x",
+      "color": "yellow"
+    },
+    "markdown/uni/Subjects/SO": {
+      "icon": "lucide-app-window-mac",
+      "color": "green"
+    }
+  },
+  "bookmarkIcons": {},
+  "tagIcons": {},
+  "propertyIcons": {},
+  "ribbonIcons": {},
+  "fileRules": [],
+  "folderRules": []
+}
