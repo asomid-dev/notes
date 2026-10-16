@@ -161,7 +161,7 @@ qunif(p = alpha, min = a, max = b) # Quantile x_alpha
 ``` 
 
 ---
-### **2. Exponential Model**
+### **2. Exponential ModelE(Geom)**
 
 - **Notation**: $X \sim \text{Exp}(\lambda)$
 - **Definition**: Models continuous **time or distance between consecutive occurrences** in a Poisson point process with constant rate $\lambda$ (e.g., component lifespan, time between server requests).
