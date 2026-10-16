@@ -23,7 +23,7 @@ $E(B) = n \times p = 12 \times 0.3 = 3.6$ and $\sigma = \sqrt{ n \times p \times
 geometric
 $p=0.35 / arrow$
 a) prob of 1st hit b4 5th arrow.
-$1 - P(X\leq 4) = pgeom(3, 0.35) = 0.8214937$
+$P(X\leq 4) = pgeom(3, 0.35) = 0.8214937$
 
 b) 
 $E(Geom) = \frac{1}{p} = \frac{1}{0.35}=2.857143$
