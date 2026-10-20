@@ -13,4 +13,9 @@ S=n+(n-1)+(n-2)+ \dots + 2 + 1
 - **...**
 - **Last pair:** $n + 1 = \mathbf{n+1}$
 - $S + S = 2S$$$2S = (n+1) + (n+1) + (n+1) + \dots + (n+1) \iff 2S = n \times (n+1) \iff S=\frac{n(n+1)}{2}$$
-### Method 2: 
+### Method 2:  Binary Tree
+
+A Binary Tree of height $h$, it can hold at most $2^{h+1}-1$ nodes (full binary tree).
+Therefore, for $n$ nodes:
+$$n \leq 2^{h+1}-1 \xrightarrow{+1 \text{ each side}} n+1 \leq 2^{h+1} \implies \log_{2}(n+1) \leq \log_{2}(2^{h+1}) \xrightarrow{\log_{_{b}}(b^x)=x}$$
+$$\log_{2}(n+1)\leq h+1 \implies \log_{2}(n+1)-1\leq h$$
