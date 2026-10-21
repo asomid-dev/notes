@@ -161,7 +161,7 @@ qunif(p = alpha, min = a, max = b) # Quantile x_alpha
 ``` 
 
 ---
-### **2. Exponential ModelE(Geom)**
+### **2. Exponential Model(Geom)**
 
 - **Notation**: $X \sim \text{Exp}(\lambda)$
 - **Definition**: Models continuous **time or distance between consecutive occurrences** in a Poisson point process with constant rate $\lambda$ (e.g., component lifespan, time between server requests).
@@ -199,6 +199,10 @@ dnorm(x = k, mean = mu, sd = sigma) # Density value
 pnorm(q = k, mean = mu, sd = sigma) # Cumulative P(X <= k)
 qnorm(p = alpha, mean = mu, sd = sigma) # Quantile x_alpha
 ``` 
+
+$$\text{z-score} = \frac{x-\mu}{\sigma} \qquad Var(Total)=n \cdot \sigma^{2}$$
+$$\text{Total Deviation } (\sigma_{n}) = \sqrt{ n } \cdot \sigma$$
+$$\text{Avg. } Var(\bar{X})=\frac{\sigma^{2}}{n} \qquad \text{Avg. Deviation }\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{ n }}$$
 
 ---
 ### **4. Distributions Derived from the Normal (for Statistical Inference)**
