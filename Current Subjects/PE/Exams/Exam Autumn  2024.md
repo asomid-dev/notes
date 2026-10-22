@@ -1,5 +1,5 @@
 # 2024
-
+#pe #examen #PARCIAL1 
 ## Problem 2 (B)
 
 ### P(Lleus): 0.4, P(Mitjans): 0.25, P(Greus): 0.1
@@ -28,7 +28,7 @@ $$P(X < 2) = P(X=0) + P(X=1) = 0.091578$$
 6. Exponential
 $$P(Exp) = 1-(1-e^{-\lambda \cdot x}) = 1-(1-e^{-1}) = 0.3678$$
 
-Mean 180h, deviation 100h
+$\mu = 180h$, $\sigma = 100h$
 7. Normal
 
 $$\mu = \mu \cdot n, \sigma = \sigma = \sigma \cdot \sqrt{  \mu } \implies = \mu = 180 * 25 = 4500, \sigma = 100 \cdot \sqrt{ 25 } = 500$$

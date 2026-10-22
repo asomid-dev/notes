@@ -1,5 +1,5 @@
 # 2025
-
+#pe #examen #PARCIAL1
 ## Problem 2 (B)
 
 1.
