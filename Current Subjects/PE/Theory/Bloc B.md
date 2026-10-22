@@ -203,6 +203,9 @@ qnorm(p = alpha, mean = mu, sd = sigma) # Quantile x_alpha
 $$\text{z-score} = \frac{x-\mu}{\sigma} \qquad Var(Total)=n \cdot \sigma^{2}$$
 $$\text{Total Deviation } (\sigma_{n}) = \sqrt{ n } \cdot \sigma$$
 $$\text{Avg. } Var(\bar{X})=\frac{\sigma^{2}}{n} \qquad \text{Avg. Deviation }\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{ n }}$$
+### TCL
+$$
+N(\mu n, \sigma \sqrt{ \mu }) \implies \mu = \mu \cdot n, \sigma = \sigma \cdot \sqrt{ n }$$
 
 ---
 ### **4. Distributions Derived from the Normal (for Statistical Inference)**
