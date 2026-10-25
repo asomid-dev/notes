@@ -34,3 +34,5 @@ Will be done on R.
 - Plot
 - Chart
 - Residual plot
+
+:s
