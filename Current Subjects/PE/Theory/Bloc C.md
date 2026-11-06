@@ -92,3 +92,71 @@ $$se=\sqrt{ V(\bar{X}_{n}) }=\sqrt{ E[(\bar{X}_{n}-\mu)^{2}] }=\frac{\sigma}{\sq
 Generally, the σ will be unknown and the standard error will have to be approximated using the corresponding estimator ($\hat{\sigma}$) with the sample data: $\hat{se}=\frac{\hat{\sigma}}{\sqrt{ n }}=\frac{s}{\sqrt{ n }}$ (with s the point estimator of $\sigma$).
 
 ### Cases
+
+| Parameter ($\theta$) (**POPULATION**)                                          | Estimator ($\hat{\theta}$) (**SAMPLE**)                      |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| $\mu$ (expectation, population mean)                                           | $\bar{x}$ (sample mean)                                      |
+| $\sigma^{2}$ (population variance)<br>$\sigma$ (population standard deviation) | $s^{2}$ (sample variance)<br>$s$ (sample standard deviation) |
+| $\pi$ (probability)                                                            | **p** (proportion)                                           |
+MEAN: 
+$\bar{x}=\frac{\sum^{n}_{{i=1}}x_{i}}{n}$ The sample mean is a point estimate of the parameter $\mu$ of central tendency.
+
+STANDARD DEVIATION: 
+$s=\sqrt{ \frac{\sum^{n}_{i=1}(x_{i}-\bar{x})^{2}}{n-1} }$ The sample standard deviation is a poijnt estimate of the parameter $\sigma$ of dispersion.
+
+PROPORTION:
+$p=\sum_{i,x_{i}=1}1 / n$ The sample proportion is a point estimate of the parameter $\pi$.
+
+PROPERTIES: (see appendix)
+
+### Descriptive statistics
+
+- Estimators proprieties: Parameters could have different estimators (approximations to the punctual unknown value) and have a margin of error depending of the sample. So we could compare in base to some proprieties:
+	- **Bias** that it's preferable to be near 0 in order to assure that the expected value will fit the real value
+	- **Efficiency** that it's preferable to be high pointing out more precision and less dispersion
+	- other proprieties like consistency, ...
+
+The previous punctual estimators are what is called Descriptive Statistics to summarise data numerically
+
+## 3. Estimation using confidence intervals
+- We know how to calculate an "interval" that contains $\bar{x}$ from $\mu$. But the real problem is to approximate $\mu$ from $\bar{x}$ (i.e.)
+
+## 4.a. Confidence interval for one parameter
+
+### Confidence interval of $\mu$ (with known $\sigma$)
+Z test
+$Z_{\alpha / 2}, \frac{\sigma}{\sqrt{ n }}$
+Normally distributed.
+### Confidence interval of $\mu$ (with unknown $\sigma$)
+t-test
+$S \to \text{sample deviation}$.
+Approx. Normally
+$$IC(\mu, 1-\alpha)=\bar{x}\pm t_{n-1,1-\frac{\sigma}{2}} \cdot \frac{s}{\sqrt{ n }}$$
+ 
+(R: $t_{n-1, 1-\frac{\sigma}{2}}$: `qt(1-alpha/2, n-1)`)
+
+### Confidence interval of $\mu$. Assumptions
+
+To guarantee the confidence level of the IC, certain premises must be met.
+The fundamental premise is that the origin of the sample must be random.
+In addition:
+- If sigma known, one of the following two conditions is requires:
+	- X~N $\to$ since the linear combination of normals is also normal ($\bar{X}$~N)
+	- The sample is "large" $\to$ by the CLT, $\bar{X}$~N
+
+### Confidence interval of $\pi$
+$\implies$ If one experiment generate some sample with the $\bar{p}=0.7$
+$\implies$ IC with 90%
+$$IC(\pi,1-\alpha)=P\pm z_{1-\frac{\alpha}{2}}\sqrt{ \frac{\hat{\pi}(1-\hat{\pi})}{n} }$$
+As a summary guide, check that $\pi \times n \geq 5$ and $(1-\pi)\times n \geq 5$
+
+For block T, it is recommended to use 
+a) $P$ as $\hat{\pi}$ $IC(\pi,1-\alpha)=P\pm z_{1-\alpha / 2}\cdot \sqrt{ (P(1-P)) / n }$
+b) Maximum $\hat{\pi}$ value (0.5) $IC(\pi,1-\alpha)=P\pm z_{1-\alpha / 2} \cdot \sqrt{ (0.5(1-0.5)) / n }$
+### Confidence interval of $\sigma^{2}$
+
+If $X_{i}\to N$ ~ $X^{2}_{n-1}$
+
+We can relate the variance ratio statistic (S2/$\sigma$ 2) to a $X^{2}$ as the sum squared normal variables is $X^{2}$ (see models derived from the normal in the Appendix to Section B).
+
+$$IC(\sigma ^{2}, 1-\alpha)=\left[ \frac{s^{2}(n-1)}{X^{2}_{n-1},1 - \frac{\sigma}{2}} , \frac{s^{2}(n-1)}{X^{2}_{n-1, \frac{\sigma}{2}}}\right]$$
