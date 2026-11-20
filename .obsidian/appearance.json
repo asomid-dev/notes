@@ -1,5 +1,6 @@
 {
   "showViewHeader": true,
   "theme": "obsidian",
-  "cssTheme": "AnuPpuccin"
+  "cssTheme": "AnuPpuccin",
+  "showRibbon": true
 }

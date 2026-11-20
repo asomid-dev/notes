@@ -91,3 +91,70 @@ Based on the Chi-square statistic $\frac{(n-1)s^2}{\sigma^2} \sim \chi^2_{n-1}$:
 
 - **R Quantiles**: `qchisq(1 - alpha/2, n - 1)` and `qchisq(alpha/2, n - 1)`
 - **Important Note**: Because the $\chi^2$ distribution is **asymmetric**, lower and upper quantiles must be evaluated separately rather than using $\pm$. This interval estimates **variance** $\sigma^2$, not standard deviation $\sigma$.
+
+## **4.b. Confidence Intervals to Compare 2 Parameters**
+
+### **Comparing Means ($\mu_1 - \mu_2$)**
+
+- **Paired Samples (**$\mu_D = \mu_1 - \mu_2$**)**:
+    - **Context**: Two measurements taken on the **same individuals** (e.g., before/after).
+    - **Method**: Calculate differences $d_i = y_{1i} - y_{2i}$ and treat as **1 single sample** of differences with mean $\bar{d}$ and standard deviation $s_d$.
+    - **Statistic**: $\hat{t} = \frac{\bar{d} - \mu_D}{se} \sim t_{n-1}$, where standard error $se = \frac{s_d}{\sqrt{n}}$.
+    - **Formula**: $$\text{IC}(\mu_1 - \mu_2, 1-\alpha) = \bar{d} \pm t_{n-1, 1-\alpha/2} \cdot \frac{s_d}{\sqrt{n}}$$
+    - **R Command**: `qt(1 - alpha/2, n - 1)` or `t.test(Y1, Y2, paired = TRUE)`.
+- **Independent Samples (**$\mu_1 - \mu_2$**)**:
+    - **Context**: Two separate random samples of sizes $n_1$ and $n_2$.
+    - **Assumption**: Normal distributions and **equal variances** ($\sigma_1^2 = \sigma_2^2 = \sigma^2$).
+    - **Pooled Variance**: $s^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{(n_1 - 1) + (n_2 - 1)}$.
+    - **Standard Error**: $se = s \cdot \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$.
+    - **Formula**: $$\text{IC}(\mu_1 - \mu_2, 1-\alpha) = (\bar{y}_1 - \bar{y}_2) \pm t_{n_1+n_2-2, 1-\alpha/2} \cdot s \cdot \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}$$
+    - **R Command**: `qt(1 - alpha/2, n1 + n2 - 2)` or `t.test(Y1, Y2, paired = FALSE, var.equal = TRUE)`.
+
+---
+### **Comparing Proportions (**$\pi_1 - \pi_2$**)**
+
+- **Context**: Two independent samples from binomial populations.
+- **Standard Error**: $se = \sqrt{\frac{P_1(1-P_1)}{n_1} + \frac{P_2(1-P_2)}{n_2}}$.
+- **Condition**: Requires large samples ($P \cdot n > 5$ and $(1-P) \cdot n > 5$) for Central Limit Theorem convergence.
+- **Formula**: $$\text{IC}(\pi_1 - \pi_2, 1-\alpha) = (P_1 - P_2) \pm z_{1-\alpha/2} \cdot \sqrt{\frac{P_1(1-P_1)}{n_1} + \frac{P_2(1-P_2)}{n_2}}$$
+- **R Command**: `qnorm(1 - alpha/2)`.
+
+---
+### **3. Comparing Variances (**$\sigma_1^2 / \sigma_2^2$**)**
+
+- **Context**: Ratio of sample variances from two independent normal populations.
+- **Statistic**: $\hat{F} = \frac{s_1^2 / \sigma_1^2}{s_2^2 / \sigma_2^2} \sim F_{n_1-1, n_2-1}$ (Fisher-Snedecor distribution).
+- **Formula** (Note non-symmetric quantiles): $$\text{IC}\left(\frac{\sigma_1^2}{\sigma_2^2}, 1-\alpha\right) = \left[ \frac{s_1^2 / s_2^2}{F_{n_1-1, n_2-1, 1-\alpha/2}}, \; \frac{s_1^2 / s_2^2}{F_{n_1-1, n_2-1, \alpha/2}} \right]$$
+- **R Command**: `qf(1 - alpha/2, n1 - 1, n2 - 1)` and `qf(alpha/2, n1 - 1, n2 - 1)`.
+
+---
+### **4.c. R Functions for Confidence Intervals**
+
+- **Graphical Normality Check**: `qqnorm(X)` and `qqline(X)`.
+- **Means**: `t.test(X, conf.level = 0.95)` or linear models `lm(Y ~ 1)` / `summary(lm(Y ~ 1))`.
+- **2 Paired Means**: `t.test(Y1, Y2, paired = TRUE)`.
+- **2 Independent Means**: `t.test(Y1, Y2, paired = FALSE, var.equal = TRUE)`.
+
+---
+## **5. Designs: How Data Is Obtained**
+
+- **Experimental Studies ("DO")**:
+    - Investigates interventions by randomly assigning decision variable $X$.
+    - Random assignment guarantees independence from covariates $Z$.
+    - Allows establishing **causal relationships** ($X \to Y$).
+- **Observational Studies ("SEE")**:
+    - Observes natural/real-world covariate values $Z$ without intervention.
+    - Quantifies $Z$'s ability to reduce uncertainty in predicting response $Y$.
+    - Covariates $Z$ may be correlated/collinear, leading to **confounded effects**.
+    - Demonstrates **association/prediction**, NOT direct causality.
+
+---
+## **6. Descriptive Statistics Functions in R**
+
+- **Univariate Numerical**:
+    - Indicators: `length()`, `mean()`, `var()`, `sd()`, `median()`, `summary()`.
+    - Graphics: `hist()`, `boxplot()`.
+- **Univariate Categorical**:
+    - Table & Plot: `table()`, `barplot(table())`.
+- **Bivariate Numerical**:
+    - Indicators & Plot: `cov(X,Y)`, `cor(X,Y)`, `plot(X,Y)`.
